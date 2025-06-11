@@ -1,0 +1,60 @@
+{
+    "autoApprove": null,
+    "azure": {
+        "apiParameter": "api-version=7.1",
+        "devopsScope": "https://app.vssps.visualstudio.com",
+        "organizations": {
+            "D": {
+                "argocd": {
+                    "acceptance": {
+                        "repository": null,
+                        "sourceBranch": null,
+                        "targetBranch": null
+                    },
+                    "production": {
+                        "repository": null,
+                        "sourceBranch": null,
+                        "targetBranch": null
+                    }
+                },
+                "mavenRepositories": [],
+                "pipeline": {
+                    "branch": null,
+                    "path": null
+                },
+                "projects": [
+                    "DA",
+                    "DB"
+                ]
+            },
+            "E": {
+                "argocd": {
+                    "acceptance": {
+                        "repository": null,
+                        "sourceBranch": null,
+                        "targetBranch": null
+                    },
+                    "production": {
+                        "repository": null,
+                        "sourceBranch": null,
+                        "targetBranch": null
+                    }
+                },
+                "mavenRepositories": [],
+                "pipeline": {
+                    "branch": null,
+                    "path": null
+                },
+                "projects": [
+                    "EA",
+                    "EB"
+                ]
+            }
+        },
+        "urlServer": "https://dev.azure.com"
+    },
+    "git": {
+        "gitBranchMain": "main"
+    },
+    "ticketUrl": null
+}

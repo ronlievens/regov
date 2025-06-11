@@ -1,0 +1,15 @@
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# IntelliJ IDEA IDE
+.idea/
+*.iml
+*.ipr
+*.msg
+
+# Maven
+target/
+tree.txt
+analyze.txt
+dependency-reduced-pom.xml

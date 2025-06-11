@@ -1,0 +1,18 @@
+{
+    "azure": {
+        "organizations": {
+            "D": {
+                "projects": [
+                    "DA",
+                    "DB"
+                ]
+            },
+            "E": {
+                "projects": [
+                    "EA",
+                    "EB"
+                ]
+            }
+        }
+    }
+}
