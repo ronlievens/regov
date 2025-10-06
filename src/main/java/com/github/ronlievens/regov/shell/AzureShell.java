@@ -43,10 +43,11 @@ public class AzureShell {
                                     @NonNull final String description,
                                     @NonNull final String targetBranch,
                                     @NonNull final String mergeCommitMessage,
+                                    final boolean autoComplete,
                                     final boolean trace) {
         val prID = shell.execute(("""
              az repos pr create \
-              --auto-complete\
+              --auto-complete "%b"\
               --organization "%s"\
               --project "%s"\
               --repository "%s"\
@@ -57,7 +58,7 @@ public class AzureShell {
               --description "%s"\
               --query "pullRequestId"\
               --merge-commit-message "%s"
-            """).formatted(organization, project, repository, sourceBranch, targetBranch, title, description, mergeCommitMessage), trace);
+            """).formatted(autoComplete, organization, project, repository, sourceBranch, targetBranch, title, description, mergeCommitMessage), trace);
         if (prID.exitCode() == 0) {
             return prID.value().trim().replace(System.lineSeparator(), "");
         }
@@ -82,6 +83,7 @@ public class AzureShell {
             description,
             targetBranch,
             mergeCommitMessage,
+            true,
             trace);
 
         if (isNotBlank(prID)) {

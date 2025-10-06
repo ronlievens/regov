@@ -159,9 +159,9 @@ public class RewriteExecuteTask implements RewriteRunnableTask {
 
             val mergeCommitMessage = SOURCE_COMMIT_PREFIX.formatted(rewriteContext.getTicket());
             if (Settings.properties().isAutoApproveEnabled()) {
-                azureShell.createPullRequestAndApprove(repository.getProject().getOrganizationName(),
+                azureShell.createPullRequestAndApprove("%s/%s".formatted(properties().getAzure().getUrlServer(), repository.getProject().getOrganizationName()),
                     repository.getProject().getName(),
-                    repository.getSshUrl(),
+                    repository.getName(),
                     rewriteContext.getBranchName(),
                     "Auto rewrite %s".formatted(rewriteContext.getRecipeName()),
                     message,
@@ -170,14 +170,15 @@ public class RewriteExecuteTask implements RewriteRunnableTask {
                     rewriteContext.isTrace());
                 log.info("Pull request created and approved: {}", mergeCommitMessage);
             } else {
-                azureShell.createPullRequest(repository.getProject().getOrganizationName(),
+                azureShell.createPullRequest("%s/%s".formatted(properties().getAzure().getUrlServer(), repository.getProject().getOrganizationName()),
                     repository.getProject().getName(),
-                    repository.getSshUrl(),
+                    repository.getName(),
                     rewriteContext.getBranchName(),
                     "Auto rewrite %s".formatted(rewriteContext.getRecipeName()),
                     message,
                     properties().getGit().getGitBranchMain(),
                     mergeCommitMessage,
+                    false,
                     rewriteContext.isTrace());
                 log.info("Pull request created: {}", mergeCommitMessage);
             }
